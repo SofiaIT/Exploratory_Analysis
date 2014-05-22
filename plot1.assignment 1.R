@@ -29,3 +29,7 @@ png(filename = "plot1.png",
 hist(hpc$Global_active_power, main="Global Active Power", col = "red",  
      ylim=c(0,1200), xlab="Global Active Power (kilowatts)")
 dev.off()
+
+
+
+
