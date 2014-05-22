@@ -48,3 +48,8 @@ plot(Emissions ~ year, data=NEI.total, type="l", ylab="Emissions of PM2.5", xlab
 main="Total PM2.5 emission from 1999 to 2008")
 
 dev.off()
+
+
+
+
+
