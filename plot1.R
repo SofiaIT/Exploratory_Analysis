@@ -37,7 +37,7 @@ NEI.total <- rbind(NEI.1999, NEI.2002, NEI.2005, NEI.2008)
 # I create a plot with the base plotting system to reply to this question.
 
 plot(Emissions ~ year, data=NEI.total, type="l", ylab="Emissions of PM2.5", xlab="Years",
-main="Total PM2.5 emission")
+main="Total PM2.5 emission from 1999 to 2008")
 
 
 ## I create the file.png
@@ -45,6 +45,6 @@ main="Total PM2.5 emission")
 png(filename = "plot1.png", width = 480, height = 480)
 
 plot(Emissions ~ year, data=NEI.total, type="l", ylab="Emissions of PM2.5", xlab="Years",
-main="Total PM2.5 emission")
+main="Total PM2.5 emission from 1999 to 2008")
 
 dev.off()
