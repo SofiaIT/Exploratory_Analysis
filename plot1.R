@@ -32,8 +32,7 @@ NEI.total <- rbind(NEI.1999, NEI.2002, NEI.2005, NEI.2008)
 # QUESTION 1 #
 #°°°°°°°°°°°°#
 
-# Have total emission from PM2.5 decreased in the United States from 1999 to
-# 2008 ?
+# Have total emission from PM2.5 decreased in the United States from 1999 to 2008 ?
 
 # I create a plot with the base plotting system to reply to this question.
 
