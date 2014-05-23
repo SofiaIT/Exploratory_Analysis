@@ -26,7 +26,7 @@ NEI.2008 <- subset(NEI, year=="2008")
 # I merge the datasets above into a unique dataset called NEI.total.
 
 NEI.total <- rbind(NEI.1999, NEI.2002, NEI.2005, NEI.2008)
-
+row.names(NEI.total) <- NULL
 
 #°°°°°°°°°°°°#
 # QUESTION 1 #
