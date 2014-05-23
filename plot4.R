@@ -14,7 +14,7 @@ SCC<- readRDS("Source_Classification_Code.rds")
 SCC <- edit(SCC)
 
 
-# I select the SCC variables related to the coal combustion sources through opportune key words that seem 
+# I select the SCC observations related to the coal combustion sources through opportune key words that seem 
 # to match to this kind of sources.
 # I use the key words into the third variable (Short.Name) 
 
