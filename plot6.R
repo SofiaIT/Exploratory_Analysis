@@ -32,7 +32,7 @@ NEI.2008 <- subset(NEI, year == "2008")
 # I merge the datasets above into a unique dataset called NEI.total.
 
 NEI.total <- rbind(NEI.1999, NEI.2002, NEI.2005, NEI.2008)
-
+row.names(NEI.total) <- NULL
 
 # I select Baltimore City, Maryland. 
 
@@ -47,17 +47,17 @@ NEI.LosAngeles <- subset(NEI.total, fips == "06037")
 # I merge the two datasets above into a unique dataset called NEI.cities.
 
 NEI.cities <- rbind(NEI.Baltimore, NEI.LosAngeles)
-
+row.names(NEI.cities) <- NULL
 
 # I select only motor vehicle sources.
 
 NEI.cities <- subset(NEI.cities, type == "ON-ROAD")
+row.names(NEI.cities) <- NULL
 
 
-
-#°°°°°°°°°°°°#
+#°°°°°°°°°°°°°°°°#
 # QUESTION 6 #
-#°°°°°°°°°°°°#
+#°°°°°°°°°°°°°°°°#
 
 # Compare emissions from motor vehicle sources between Baltimore City and Los Angeles County over time.
 
