@@ -14,22 +14,8 @@ SCC<- readRDS("Source_Classification_Code.rds")
 SCC <- edit(SCC)
 
 
-# I select the SCC variable's observations related to the coal combustion sources through opportune key words that seem 
-# to match to this kind of sources.
-# I use the key words into the third variable (Short.Name) 
-
-# I found 204 possible pollutant sources linked to coal emissions. 
-
-# I decided to include all the several activities which are involved in the coal use, even if the word 'coal' 
-# is only in the activity's name. 
-# That's why they could probably be pollutant sources from coal combustion in some way.
-
-
-SCC.coal <- SCC[
-   grepl("coal", SCC$SCC.Level.Three, ignore.case=TRUE) |
-   grepl("lignite", SCC$SCC.Level.Three, ignore.case=TRUE)|
-   grepl("anthracite", SCC$SCC.Level.Three, ignore.case=TRUE)|
-   grepl("coal-based", SCC$SCC.Level.Three, ignore.case=TRUE), ]
+# I select the SCC variable's observations related to the coal c
+row.names(SCC.coal) <- NULL
 SCC.coal<- edit(SCC.coal)
 
 
@@ -57,11 +43,13 @@ NEI.2008 <- subset(NEI, year=="2008")
 # I merge the datasets above into a unique dataset called NEI.total.
 
 NEI.total <- rbind(NEI.1999, NEI.2002, NEI.2005, NEI.2008)
+row.names(NEI.total) <- NULL
 
 
 # I select only emissions from coal combustion-related sources. 
 
 NEI.total <- subset(NEI.total, SSC %in% "ID")
+row.names(NEI.total) <- NULL
 
 
 
