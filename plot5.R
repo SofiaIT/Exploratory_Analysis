@@ -38,10 +38,14 @@ row.names(NEI.Baltimore) <- NULL
 NEI.Baltimore <- subset(NEI.Baltimore, type=="ON-ROAD")
 row.names(NEI.Baltimore) <- NULL
 
+# I omit the missing values from my data set.
 
-#°°°°°°°°°°°°°°°°#
+NEI.Baltimore <- na.omit(NEI.Baltimore)
+
+
+#°°°°°°°°°°°°#
 # QUESTION 5 #
-#°°°°°°°°°°°°°°°°#
+#°°°°°°°°°°°°#
 
 # How have emissions from motor vehicle sources changed from 1999-2008 in Baltimore City ?
 
@@ -52,17 +56,31 @@ row.names(NEI.Baltimore) <- NULL
 library(ggplot2)
 str(NEI.Baltimore)
 
-# I make a basic plot in order to see the change of the PM2.5 emissions from motor vehicles within each year.
+# I make a plot in order to see the change of the PM2.5 emissions from motor vehicles 
+# within each year.
 
-qplot(Emissions, type, data = NEI.Baltimore, facets = .~ year, geom = c("point", "smooth"), method = "lm")
+g <- qplot(NEI.Baltimore, aes(x=log(Emissions), y=type)) 
+
+summary(g)
+
+g  +  geom_point(color = "steelblue", size = 4, alpha = 1/2) +  
+geom_smooth(size=2, linetype = 3, se= FALSE, method = "lm") + facet_grid(.~ year) + 
+labs(title = "PM2.5 emissions from motor vehicles in baltimore") +
+labs(x = expression("log"*PM[2.5]), y = "motor vehicles")
 
 
 ## I create the file.png
 
 png(filename = "plot5.png", width = 480, height = 480)
 
-qplot(Emissions, type, data = NEI.Baltimore, facets = .~ year, geom = c("point", "smooth"),
-method = "lm")
+g <- qplot(NEI.Baltimore, aes(x=log(Emissions), y=type))
+ 
+g  +  geom_point(color = "steelblue", size = 4, alpha = 1/2) +  
+geom_smooth(size=2, linetype = 3, se= FALSE, method = "lm") + facet_grid(.~ year) + 
+labs(title = "PM2.5 emissions from motor vehicles in baltimore") +
+labs(x = expression("log"*PM[2.5]), y = "motor vehicles")
 
 dev.off()
+
+
 
