@@ -28,24 +28,36 @@ NEI.2008 <- subset(NEI, year=="2008")
 NEI.total <- rbind(NEI.1999, NEI.2002, NEI.2005, NEI.2008)
 row.names(NEI.total) <- NULL
 
+# I omit the missing values from my data frame
+
+NEI.total <- na.omit(NEI.total)
+
+
 #°°°°°°°°°°°°#
 # QUESTION 1 #
 #°°°°°°°°°°°°#
 
-# Have total emission from PM2.5 decreased in the United States from 1999 to 2008 ?
+# Unless specified, you can use any plotting system in R to make your plot.
 
-# I make a plot with the R's base plotting system to answer this question.
+# Have total emission from PM2.5 decreased in the United States from 1999 to
+# 2008 ? Using the base plotting systen, make a plot showing the total PM2.5
+# emission from all sources for each of the years 1999, 2002, 2005 and 2008.
 
-plot(Emissions ~ year, data=NEI.total, type="l", ylab="Emissions of PM2.5", xlab="Years",
-main="Total PM2.5 emission from 1999 to 2008")
+# I make a plot by using the R's base plotting system to answer this question.
 
+plot(log="Emissions" ~ year, data=NEI.total, type="p", col="red", pch=16, ylab="PM2.5 Emissions", 
+xlab="Years", xaxt = "n")
+axis(1, at=c(0,3,6,9), labels=c("1999","2002","2005","2008"))
+title("Total PM2.5 emission in the U.S.A", font.main=3, adj=0.5)
 
 ## I create the file.png
 
 png(filename = "plot1.png", width = 480, height = 480)
 
-plot(Emissions ~ year, data=NEI.total, type="l", ylab="Emissions of PM2.5", xlab="Years",
-main="Total PM2.5 emission from 1999 to 2008")
+plot(log="Emissions" ~ year, data=NEI.total, type="p", col="red", pch=16, ylab="PM2.5 Emissions", 
+xlab="Years", xaxt = "n")
+axis(1, at=c(0,3,6,9), labels=c("1999","2002","2005","2008"))
+title("Total PM2.5 emission in the U.S.A", font.main=3, adj=0.5)
 
 dev.off()
 
