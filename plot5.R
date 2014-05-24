@@ -73,7 +73,7 @@ labs(x = expression("log"*PM[2.5]), y = "motor vehicles")
 
 png(filename = "plot5.png", width = 480, height = 480)
 
-g <- qplot(NEI.Baltimore, aes(x=log(Emissions), y=type))
+g <- ggplot(NEI.Baltimore, aes(x=log(Emissions), y=type))
  
 g  +  geom_point(color = "steelblue", size = 4, alpha = 1/2) +  
 geom_smooth(size=2, linetype = 3, se= FALSE, method = "lm") + facet_grid(.~ year) + 
