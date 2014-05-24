@@ -1,5 +1,5 @@
 ####################
-#      ASSIGNMENT 2     #
+#   ASSIGNMENT 2   #
 ####################
 
 
@@ -34,7 +34,7 @@ NEI.total <- na.omit(NEI.total)
 
 
 #°°°°°°°°°°°°°°°°#
-# QUESTION 1  #
+#   QUESTION 1   #
 #°°°°°°°°°°°°°°°°#
 
 # Have total emission from PM2.5 decreased in the United States from 1999 to
