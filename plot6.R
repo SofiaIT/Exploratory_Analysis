@@ -70,8 +70,7 @@ NEI.cities <- na.omit(NEI.cities)
 library(ggplot2)
 str(NEI.cities)
 
-# I make a basic plot in order to see the change of the PM2.5 emissions from motor vehicles 
-# over time within each city.
+# I make a  plot in order to see the change of the PM2.5 emissions from motor vehicles over time within each city.
 
 g <- ggplot(NEI.cities, aes(x=log(Emissions), y=type))
 
