@@ -60,7 +60,7 @@ row.names(NEI.total) <- NULL
 
 # I select only emissions from coal combustion-related sources. 
 
-NEI.total <- subset(NEI.total, SSC %in% "ID")
+NEI.total <- subset(NEI.total, SCC %in% "ID")
 row.names(NEI.total) <- NULL
 
 # I omit the missing values from my data set.
