@@ -33,14 +33,20 @@ row.names(NEI.total) <- NULL
 NEI.Baltimore <- subset(NEI.total, fips=="24510")
 row.names(NEI.Baltimore) <- NULL
 
+# I omit the missing values from my data set.
+
+NEI.Baltimore <- na.omit(NEI.Baltimore)
+
 
 #°°°°°°°°°°°°#
 # QUESTION 3 #
 #°°°°°°°°°°°°#
 
-# Of the four types of sources indicated by the type variable, which of these
-# four sources have seen decreases in emissions from 1999-2008 for Baltimore
-# City ? Which have seen increases in emissions from 1999-2008 ?
+# Of the four types of sources indicated by the type (point, nonpoint, onroad,
+# nonroad )variable, which of these four sources have seen decreases in emissions 
+# from 1999-2008 for Baltimore City ? Which have seen increases in emissions from 
+# 1999-2008 ?
+# Use the ggplot2 plotting system to make a plot answering this question.
 
 # I make a plot by using the R's ggplot2 plotting system to answer this question.
 
@@ -51,14 +57,19 @@ str(NEI.Baltimore)
 
 # I make a plot by group (point, nonpoint, onroad, nonroad) by using facets.
 
-qplot(year, Emissions, data=NEI.Baltimore, facets = .~ type)
+qplot(year, log(Emissions), data=NEI.Baltimore, geom=c("point", "smooth"),
+method="lm", facets = .~ type)
 
 
 ## I create the file.png
 
 png(filename = "plot3.png", width = 480, height = 480)
 
-qplot(year, Emissions, data=NEI.Baltimore, facets = .~ type)
+qplot(year, log(Emissions), data=NEI.Baltimore, geom=c("point", "smooth"),
+method="lm", facets = .~ type)
 
 dev.off()
+
+
+
 
