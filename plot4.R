@@ -63,6 +63,10 @@ row.names(NEI.total) <- NULL
 NEI.total <- subset(NEI.total, SSC %in% "ID")
 row.names(NEI.total) <- NULL
 
+# I omit the missing values from my data set.
+
+NEI.total <- na.omit(NEI.total)
+
 
 #°°°°°°°°°°°°#
 # QUESTION 4 #
@@ -73,18 +77,22 @@ row.names(NEI.total) <- NULL
 
 # I make a plot by using the R's base plotting system to answer this question.
 
-plot(Emissions ~ year, data=NEI.total, type="l", ylab="Emissions of PM2.5 from coal combustion", xlab="Years",
-main="Total PM2.5 emission from coal combustion-related sources from 1999-2008 in the U.S.A ")
+plot(log="Emissions" ~ year, data=NEI.total, type="p", col="red", pch=16, 
+ylab="PM2.5 emissions from coal combustion", xlab="Years", xaxt = "n")
+axis(1, at=c(0,3,6,9), labels=c("1999","2002","2005","2008"))
+title("Total PM2.5 emission from coal combustion-related sources", font.main=3, adj=0.5)
+
 
 
 ## I create the file.png
 
 png(filename = "plot4.png", width = 480, height = 480)
 
-plot(Emissions ~ year, data=NEI.total, type="l", ylab="Emissions of PM2.5 from coal combustion", xlab="Years",
-main="Total PM2.5 emission from coal combustion-related sources from 1999-2008 in the U.S.A ")
+plot(log="Emissions" ~ year, data=NEI.total, type="p", col="red", pch=16, 
+ylab="PM2.5 emissions from coal combustion", xlab="Years", xaxt = "n")
+axis(1, at=c(0,3,6,9), labels=c("1999","2002","2005","2008"))
+title("Total PM2.5 emission from coal combustion-related sources", font.main=3, adj=0.5)
 
 
 dev.off()
-
 
