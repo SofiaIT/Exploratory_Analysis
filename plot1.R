@@ -28,16 +28,14 @@ NEI.2008 <- subset(NEI, year=="2008")
 NEI.total <- rbind(NEI.1999, NEI.2002, NEI.2005, NEI.2008)
 row.names(NEI.total) <- NULL
 
-# I omit the missing values from my data frame
+# I omit the missing values from my data set
 
 NEI.total <- na.omit(NEI.total)
 
 
-#°°°°°°°°°°°°#
+#°°°°°°°°°°°°°°°°#
 # QUESTION 1 #
-#°°°°°°°°°°°°#
-
-# Unless specified, you can use any plotting system in R to make your plot.
+#°°°°°°°°°°°°°°°°#
 
 # Have total emission from PM2.5 decreased in the United States from 1999 to
 # 2008 ? Using the base plotting systen, make a plot showing the total PM2.5
