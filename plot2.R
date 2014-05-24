@@ -34,24 +34,35 @@ NEI.Baltimore <- subset(NEI.total, fips=="24510")
 row.names(NEI.Baltimore) <- NULL
 
 
+# I omit the missing values from my data set
+
+NEI.Baltimore <- na.omit(NEI.Baltimore)
+
+
+
 #°°°°°°°°°°°°#
 # QUESTION 2 #
 #°°°°°°°°°°°°#
 
 # Have total emission from PM2.5 decreased in the Baltimore City, Maryland from 1999 to 2008 ?
+# Use the base plotting system to make a plot answering this question.
 
 # I make a plot by using the R's base plotting system to answer this question.
 
-plot(Emissions ~ year, data=NEI.Baltimore, type="l", ylab="Emissions of PM2.5", xlab="Years",
-main="Total PM2.5 emission in Baltimore City from 1999 to 2008")
+plot(log="Emissions" ~ year, data=NEI.Baltimore, type="p", col="red", pch=16,
+ylab="PM2.5 Emissions", xlab="Years", xaxt = "n")
+axis(1, at=c(0,3,6,9), labels=c("1999","2002","2005","2008"))
+title("Total PM2.5 emission in Baltimore City", font.main=3, adj=0.5)
 
 
 ## I create the file.png
 
 png(filename = "plot2.png", width = 480, height = 480)
 
-plot(Emissions ~ year, data=NEI.Baltimore, type="l", ylab="Emissions of PM2.5", xlab="Years",
-main="Total PM2.5 emission in Baltimore City from 1999 to 2008")
+plot(log="Emissions" ~ year, data=NEI.Baltimore, type="p", col="red", pch=16,
+ylab="PM2.5 Emissions", xlab="Years", xaxt = "n")
+axis(1, at=c(0,3,6,9), labels=c("1999","2002","2005","2008"))
+title("Total PM2.5 emission in Baltimore City", font.main=3, adj=0.5)
 
 dev.off()
 
