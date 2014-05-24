@@ -57,19 +57,28 @@ str(NEI.Baltimore)
 
 # I make a plot by group (point, nonpoint, onroad, nonroad) by using facets.
 
-qplot(year, log(Emissions), data=NEI.Baltimore, geom=c("point", "smooth"),
-method="lm", facets = .~ type)
+g <- ggplot(NEI.Baltimore, aes(x=year, y=log(Emissions))) 
+
+summary(g)
+
+g  +  geom_point(color = "steelblue", size = 4, alpha = 1/2) +  
+geom_smooth(size=2, linetype = 3, se= FALSE, method = "lm") + facet_grid(.~ type) + 
+labs(title = "PM2.5 emissions in Baltimore") +
+labs(x = "years" , y = "expression("log"*PM[2.5])")
 
 
 ## I create the file.png
 
 png(filename = "plot3.png", width = 480, height = 480)
 
-qplot(year, log(Emissions), data=NEI.Baltimore, geom=c("point", "smooth"),
-method="lm", facets = .~ type)
+g <- ggplot(NEI.Baltimore, aes(x=year, y=log(Emissions))) 
+
+g  +  geom_point(color = "steelblue", size = 4, alpha = 1/2) +  
+geom_smooth(size=2, linetype = 3, se= FALSE, method = "lm") + facet_grid(.~ type) + 
+labs(title = "PM2.5 emissions in Baltimore") +
+labs(x = "years" , y = "expression("log"*PM[2.5])")
 
 dev.off()
-
 
 
 
