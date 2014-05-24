@@ -59,7 +59,7 @@ str(NEI.Baltimore)
 # I make a plot in order to see the change of the PM2.5 emissions from motor vehicles 
 # within each year.
 
-g <- qplot(NEI.Baltimore, aes(x=log(Emissions), y=type)) 
+g <- ggplot(NEI.Baltimore, aes(x=log(Emissions), y=type)) 
 
 summary(g)
 
