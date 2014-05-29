@@ -44,6 +44,7 @@ NEI.Baltimore <- subset(NEI.Baltimore, Emissions!=0)
 NEI.Baltimore <- edit(NEI.Baltimore)
 
 
+
 #°°°°°°°°°°°°#
 # QUESTION 3 #
 #°°°°°°°°°°°°#
@@ -71,20 +72,25 @@ g  +  geom_point(color = "steelblue", size = 4, alpha = 1/2) +
 geom_smooth(method = "lm") + facet_grid(.~ type) + 
 labs(title = "PM2.5 emissions in Baltimore from 1999 to 2008") +
 labs(x = "years" , y = expression("log"*PM[2.5])) +
-coord_cartesian(xlim = c(1998,2009))
+scale_x_continuous(limits=c(1998,2009), breaks=seq(1999,2008,3))
 
+# alternative way
+# scale_x_continuous(limits=c(1998,2009), breaks=c(1999,2002,2005,2008), labels=c("1999","2002","2005","2008")) 
 
 
 # I create the file.png
 
-png(filename = "plot3.png", weight=800, heigth=489)
+png(filename = "plot3.png", width=800, height=489)
 
 g <- ggplot(NEI.Baltimore, aes(x=year, y=log(Emissions), fill=type)) 
+
 g  +  geom_point(color = "steelblue", size = 4, alpha = 1/2) +  
 geom_smooth(method = "lm") + facet_grid(.~ type) + 
 labs(title = "PM2.5 emissions in Baltimore from 1999 to 2008") +
 labs(x = "years" , y = expression("log"*PM[2.5])) +
-coord_cartesian(xlim = c(1998,2009))
-
+scale_x_continuous(limits=c(1998,2009), breaks=seq(1999,2008,3))
 
 dev.off()
+
+
+
